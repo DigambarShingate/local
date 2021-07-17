@@ -1,0 +1,55 @@
+mkdir local
+git init ,add,commit
+git branch Dev
+git branch Test
+-------------------------------------------------------------
+git switch Dev
+======>nano file1.txt
+git add .
+git commit -m "commit file1 to Dev"
+
+-------------------------------------------------------------
+git switch Test
+======>nano file2.txt
+======>nano file3.txt
+git add .
+git commit -m "commit file2 and file3 to Test"
+-------------------------------------------------------------
+
+
+**** Modify 1st file some text.*****
+nano file1.txt
+git add .
+git commit -m "second commit file1 to Dev"
+
+****Check differences and status.*****
+git diff master Dev ./file1.txt
+
+
+**** Finally merge all together in a master branch.*****
+git switch master
+git merge Dev
+git merge Test
+------------------------------------------------------------------
+
+*****Push this repository on your github.*****
+git remote add origin https://github.com/DigambarShingate/local.git
+
+git push -u origin master
+
+--------------------------------------------------------------
+**** Create a clone for this repo from github to local system with another location.****
+mkdir clonelocal
+cd clonelocal
+git init
+git clone https://github.com/DigambarShingate/local.git
+
+nano solution.txt
+git remote add origin https://github.com/DigambarShingate/local.git
+
+git push -u origin master
+
+
+
+
+
